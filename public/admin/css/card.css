@@ -15,6 +15,7 @@
  .container {
 	 margin-top: 2rem;
 }
+ 
  #pageHeaderTitle {
 	 margin: 2rem 0;
 	 text-transform: uppercase;
@@ -156,6 +157,7 @@
 		 right: -12px !important;
 		 transform: rotate(-4deg);
 	}
+
 }
  @media screen and (min-width: 1024px) {
 	 .postcard .postcard__text {

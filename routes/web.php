@@ -27,8 +27,11 @@ Route::get('/deleteAdmin/{id_admin}', 'adminController@deleteAdmin');
 
 Route::get('/user','userController@viewDataTes');
 Route::get('/biodata','userController@biodata');
+Route::post('/user/biodata','bioController@inputBio');
 Route::get('/daftar/{id_tes}','userController@viewDaftar')->name('viewiddaftar');
-Route::get('/history','userController@viewHistory');
+Route::get('/pembayaran','userController@viewPembayaran');
+Route::post('/transaksi/unggah','pembayaranController@viewTransaksi');
+Route::get('/riwayat','pendaftaranController@viewPilih');
 
 Route::get('/tes','tesController@viewTes');
 Route::get('/tambah_tes','tesController@viewInputTes');
@@ -43,4 +46,4 @@ Route::post('/jadwal/tambah','jadwalController@tambahJadwal');
 Route::get('/editJadwal/{id_jadwal}','jadwalController@findEdit');
 Route::put('/editJadwal/{id_jadwal}', 'jadwalController@editJadwal');
 Route::get('/deleteJadwal/{id_jadwal}', 'jadwalController@deleteJadwal');
-Route::post('/daftar/{id_detil}','detilController@daftar');
+Route::get('/daftar/pilih/{id_jadwal}','pendaftaranController@pilihJadwal');

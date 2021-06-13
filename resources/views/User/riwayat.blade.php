@@ -8,9 +8,9 @@
         <meta name="author" content="" />
         <link rel="icon" href="{{asset('admin/image/logo_sitesi.png')}}">
         <title>Dashboard - SB User</title>
-        <link href="{{asset('admin/css/card.css')}}" rel="stylesheet" />
         <link href="{{asset('admin/css/styles.css')}}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -32,6 +32,7 @@
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/biodata">Biodata</a>
                         <a class="dropdown-item" href="login.html">Logout</a>
                     </div>
                 </li>
@@ -48,13 +49,13 @@
                                 Beranda
                             </a>
                             <div class="sb-sidenav-menu-heading">Pengaturan</div>
-                            <a class="nav-link" href="/biodata">
+                            <a class="nav-link" href="/riwayat">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Biodata
+                                Riwayat
                             </a>
-                            <a class="nav-link" href="/history">
+                            <a class="nav-link" href="/pembayaran">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                History
+                                Pembayaran
                             </a>
                         </div>
                     </div>
@@ -66,60 +67,36 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <form>
-                        <h4> KONFIRMASI PEMBAYARAN </h4>
-                        <br>
-                        <div class="form-group">
-                            <label for="examplePengirim">Nama Pengirim</label>
-                            <input type="text" class="form-control" id="examplePengirim" aria-describedby="pengirim" placeholder="">
-                            <small id="pengirim" class="form-text text-muted">*sesuai nama di rekening pengirim</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleBank">Bank</label>
-                            <select class="custom-select">
-                                <option value="1">BCA</option>
-                                <option value="2">BNI</option>
-                                <option value="3">BRI</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleTgl_kirim">Tanggal Kirim</label>
-                            <input type="date" class="form-control" id="tgl_kirim" aria-describedby="tgl_kirim" placeholder="">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFile">Bukti Pembayaran</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Konfirmasi</button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">1 Langkah Lagi !</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        SITESI sedang melakukan pengecekan bukti pembayaran Anda.
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="/user" button type="button" class="btn btn-primary" data-dismiss="modal">OK !</button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    <h4>RIWAYAT KONFIRMASI JADWAL</h4>
+                    <br>
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Jenis Tes</th>
+                                <th>Tanggal Tes</th>
+                                <th>Jam Mulai</th>
+                                <th>Jam Selesai</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                            @foreach($data_view as $daftar)
+                                <tbody>
+                                    <tr>
+                                        <td>{{$daftar->id_tes}}</td>
+                                        <td>{{$daftar->tgl_tes}}</td>
+                                        <td>{{$daftar->jam_mulai}}</td>
+                                        <td>{{$daftar->jam_selesai}}</td>
+                                        <td></td>
+                                    </tr>     
+                                </tbody>
+                            @endforeach
+                    </table>
                 </main>
+            </div>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; SITESI 2020</div>
+                            <div class="text-muted">Copyright &copy; SITESI 2021</div>
                             
                         </div>
                     </div>

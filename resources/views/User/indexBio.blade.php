@@ -44,7 +44,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu Utama</div>
-                            <a class="nav-link" href="/user">
+                            <a class="nav-link" href="/user" >
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Beranda
                             </a>
@@ -73,11 +73,11 @@
                 <main>
                   <h4>BIODATA</h4>
                   <br>
-                  <form action="/user/biodata" method="post">
+                  <form action="/view/biodata" method="get">
                   {{ csrf_field() }}
                     <div class="form-group">
                       <label for="exampleInputNik">NIK</label>
-                      <input type="text" class="form-control" id="exampleInputNik" aria-describedby="nik" placeholder="" name="nik">
+                      <input type="text" class="form-control" id="exampleInputNik" aria-describedby="nik" placeholder="" name="$nik">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputNama">Nama</label>

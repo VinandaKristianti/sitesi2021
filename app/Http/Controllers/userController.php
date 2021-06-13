@@ -20,8 +20,8 @@ class userController extends Controller
         return view('User.user',compact('data_tes'));
     }
 
-    public function viewhistory(){
-        return view('User.history');
+    public function viewRiwayat(){
+        return view('User.riwayat');
     }
 
     public function biodata(){
@@ -32,11 +32,15 @@ class userController extends Controller
         return view('User.daftar');
     }
 
+    public function viewPembayaran(){
+        return view('User.pembayaran');
+    }
+
     //menampilkan pilihan jadwal by sorting tes dan jadwal
     //kemudian di user.blade untuk ngarahin ke route viewiddaftar disortir by id tes
     public function viewDaftar($id_jadwal){
         $data_jadwal =jadwal::where('id_tes',$id_jadwal)->get();
-        return view('User.daftar',compact('data_jadwal','data_tes'));
+        return view('User.daftar',compact('data_jadwal'));
     }
 
    
